@@ -40,9 +40,29 @@ Valeria Robles Torres
   - 2.4 Características del Usuario
   - 2.5 Supuestos y Dependencias
 
-- **3.** Historias de Usuario
+- **3. Técnicas de Elicitación**
+  - 3.1 Entrevistas
+    - 3.1.1 Entrevista 1: Administrador del sistema
+    - 3.1.2 Entrevista 2: Embajadora
+    - 3.1.3 Entrevista 3: Analista de mercadeo
+  - 3.2 Prototipado
+    - 3.2.1 Prototipo inicial
+    - 3.2.2 Prueba del prototipo con usuarios
+    - 3.2.3 Formulario de inscripción de referencia
 
-  - 3.1 División de sprints
+- **4. Historias de Usuario**
+  - 4.1 Historias de usuario
+  - 4.2 División por sprints
+    - 4.2.1 Validación con el cliente
+      - 4.2.1.1 Objetivo y alcance
+      - 4.2.1.2 Método de verificación: walk-through
+      - 4.2.1.3 Participantes y distribución de las HU por rol
+      - 4.2.1.4 Organización de las sesiones y criterios de clasificación
+      - 4.2.1.5 Sesión 1: revisión inicial de todas las HU
+      - 4.2.1.6 Sesión 2: pulido de detalles
+      - 4.2.1.7 Sesión 3: validación final
+      - 4.2.1.8 Resumen de resultados
+  - 4.3 Definición de Terminado (Definition of Done)
 
 # **1. Introducción**
 
@@ -152,6 +172,14 @@ Resultado esperado: menos digitación manual y menos errores. Cada
 [https://drive.google.com/file/d/1HAYflZE3PSuhdEMJaAoeLudbZK69N5VH/view?usp=sharing](https://drive.google.com/file/d/1HAYflZE3PSuhdEMJaAoeLudbZK69N5VH/view?usp=sharing)
 [https://drive.google.com/file/d/1iWT3Y6CxMyRxMOCUhvTGk7clwr0paMME/view?usp=sharing](https://drive.google.com/file/d/1iWT3Y6CxMyRxMOCUhvTGk7clwr0paMME/view?usp=sharing)
 
+- Sala de planning poker (Kollabe): [https://kollabe.com/room?roomKey=7436e648543a42c28ed64ceb35c29d32](https://kollabe.com/room?roomKey=7436e648543a42c28ed64ceb35c29d32)
+
+- Excel de las actividades para importar a Kollabe: [https://docs.google.com/spreadsheets/d/1KL2eUwqAYhNqTRMW-sAQNhqsxyZEo9jOFfZSeOxTPbE/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1KL2eUwqAYhNqTRMW-sAQNhqsxyZEo9jOFfZSeOxTPbE/edit?usp=sharing)
+
+- Excel con planning poker exportado: [https://docs.google.com/spreadsheets/d/1yZtlcy20R1-ZheS_5k78ZyZqZyWwKiGkUS8qq2SQdOI/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1yZtlcy20R1-ZheS_5k78ZyZqZyWwKiGkUS8qq2SQdOI/edit?usp=sharing)
+
+- Excel con planning poker organizado: [https://docs.google.com/spreadsheets/d/1N5fI3mFEnL-StLq16aFEX2XtjIW5PspW/edit?usp=sharing&ouid=103293696764452596241&rtpof=true&sd=true](https://docs.google.com/spreadsheets/d/1N5fI3mFEnL-StLq16aFEX2XtjIW5PspW/edit?usp=sharing&ouid=103293696764452596241&rtpof=true&sd=true)
+
 # **2. Visión General del Producto**
 
 ## **2.1 Perspectiva del Producto**
@@ -225,13 +253,154 @@ El sistema contempla dos perfiles principales de usuario final:
 
 - Infraestructura de despliegue del backend mediante contenedores Docker, ya sea en la red local de la Universidad o en un servicio en la nube.
 
-# **3. Historias de Usuario**
+# **3. Técnicas de Elicitación**
 
-## **3.1 Historias de usuario**
+Para levantar los requisitos de LexiGrid se emplearon dos técnicas de elicitación: **entrevistas** con los tres perfiles que intervienen en el proceso (administrador, embajador y analista de mercadeo) y **prototipado**, mediante un prototipo inicial que fue probado por una usuaria del área. Los hallazgos de ambas técnicas son la base de las historias de usuario de la sección 4.
+
+## **3.1 Entrevistas**
+
+Se realizaron tres entrevistas, una por perfil de usuario. Las grabaciones están disponibles en los enlaces indicados en cada entrevista y en la sección 1.5 Referencias.
+
+| **Entrevista** | **Entrevistado(a)** | **Perfil** | **Enfoque** |
+|---|---|---|---|
+| 1 | Sebastián Cerezos | Administrador del sistema | Permisos, parámetros, conexión con Salesforce, métricas, seguridad y Habeas Data |
+| 2 | Dana Isabela Ramos | Embajadora | Captura de formularios en campo y necesidades de la app móvil |
+| 3 | Natalie Arce | Analista de mercadeo | Revisión, organización y envío de registros a Salesforce sin pasos manuales |
+
+### **3.1.1 Entrevista 1: Administrador del sistema**
+
+**Entrevistado:** Sebastián Cerezos, administrador del sistema (supervisión, configuración, seguridad y cumplimiento).
+
+**Objetivo:** Definir permisos, parámetros, conexión con Salesforce, métricas y requisitos de seguridad y Habeas Data que debe cubrir la plataforma.
+
+**Grabación:** [Entrevista del administrador](https://drive.google.com/file/d/1I3Kr_vajBmk_emgBtmO8NubbiLqrlIru/view?usp=sharing)
+
+| **N.º** | **Pregunta** | **Respuesta** |
+|---|---|---|
+| 1 | En una jornada típica de ferias o visitas a colegios, ¿cuántos formularios físicos reciben aproximadamente? | Mínimo 200. |
+| 2 | ¿Prefieren subir los formularios como fotos individuales tomadas con celular/tablet, o escanearlos en lote con un scanner físico? | Foto individual en el momento (celular/tablet). |
+| 3 | Cuando el modelo de IA tenga dudas sobre un trazo manuscrito, ¿prefieren interrumpir la carga o dejarlo marcado como "por revisar"? | Seguir cargando sin detenerse: el campo queda marcado como "por revisar" y se corrige después. |
+| 4 | ¿Cómo manejan la prioridad de contacto cuando un aspirante no tiene toda la información completa? | Priorizan por grado y por datos completos. |
+| 5 | ¿Cuentan con una plantilla predefinida con encabezados y orden de columnas para la exportación posterior? | Se sube al CRM (Salesforce) con el formato del formulario para los aspirantes. |
+| 6 | Al trabajar con Salesforce, ¿qué filtros o cruces de información usan con más frecuencia? | No es necesario (no manejan filtros ni cruces relevantes desde Salesforce). |
+| 7 | Al exportar los datos priorizados, ¿necesitan un archivo consolidado o archivos separados por colegio/feria? | Un solo archivo consolidado. |
+| 8 | Cuando un mismo aspirante queda registrado más de una vez, ¿qué debería pasar con esa información? | Eliminar el duplicado. |
+| 9 | Si tuvieran que definir el éxito del proyecto en una sola métrica, ¿cuál sería? | Optimización de tiempo y reducción de errores manuales. |
+| 10 | ¿Existen restricciones institucionales de seguridad o manejo de datos personales (Habeas Data) a considerar? | Evitar que la información o la base de datos se administre o comparta fuera de la institución. Debe existir una capa de seguridad con proceso de validación de acceso, perfiles específicos por usuario y trazabilidad (huella de auditoría) de quién manipula la data. |
+
+**Información adicional obtenida:**
+
+- Se solicitó explícitamente que LexiGrid funcione como un plugin o integración directa con Salesforce, exportando la información directamente al CRM sin pasos intermedios de descarga y carga manual.
+- Para la captación de formularios se habló de una app móvil que permite tomar fotos de los formularios.
+- Se reafirmó como una necesidad que varios usuarios puedan cargar al mismo tiempo.
+- Salesforce es el sistema final de destino de los datos.
+
+### **3.1.2 Entrevista 2: Embajadora**
+
+**Entrevistada:** Dana Isabela Ramos, embajadora.
+
+**Objetivo:** Entender cómo capturan hoy los formularios en campo, qué los frena y qué necesitan de la app móvil.
+
+**Grabación:** [Entrevista del embajador](https://drive.google.com/file/d/1iWT3Y6CxMyRxMOCUhvTGk7clwr0paMME/view?usp=sharing)
+
+| **N.º** | **Pregunta** | **Respuesta** |
+|---|---|---|
+| 1 | ¿Cómo recibes los formularios? | Los analistas de mercadeo entregan los formularios agrupados por feria o colegio, junto con los datos del colegio y un formulario escrito manualmente que debe transcribirse a Excel. |
+| 2 | ¿Cómo organizas los formularios antes de digitarlos? | Prioriza los formularios con información más completa, ya que requieren más tiempo de transcripción. Deja para el final los que tienen datos faltantes, porque son más rápidos de procesar. |
+| 3 | ¿Cómo subes actualmente la información al sistema? | Transcribe manualmente los datos en Excel utilizando la cuenta de correo de un analista. |
+| 4 | ¿Qué parte del proceso te quita más tiempo? | Interpretar la letra de los estudiantes y transcribir números de identificación, teléfonos y correos electrónicos, debido a la dificultad para distinguir algunos caracteres. |
+| 5 | ¿Qué errores suelen ocurrir al digitar la información? | Se pueden cometer errores al interpretar la letra o escribir los datos. Cuando la información es ilegible, debe intentar deducir lo que escribió el estudiante, lo que aumenta el riesgo de equivocaciones. |
+| 6 | ¿Cuáles son los principales problemas con los formularios? | Muchos formularios tienen información incompleta: faltan nombres, colegios o datos de contacto. Algunos estudiantes seleccionan opciones de carreras muy diferentes entre sí o muestran poco interés y dejan campos sin diligenciar. |
+| 7 | ¿Cómo te gustaría que funcionara una herramienta para fotografiar y registrar los formularios? | Le gustaría que la herramienta transcribiera automáticamente los datos, especialmente los numéricos, y permitiera revisar y confirmar manualmente la información que el sistema no pudiera reconocer con seguridad. |
+| 8 | ¿Qué debería pasar si una fotografía sale borrosa o tiene poca luz? | El sistema debería identificar el problema, explicar por qué la imagen no es válida y permitir tomar otra fotografía inmediatamente. |
+| 9 | ¿Cuándo prefieres saber que una fotografía no sirve? | En el momento de tomarla, mientras todavía tiene el formulario físico a la mano, para corregir el problema de inmediato. |
+| 10 | ¿Cómo verificas actualmente que todos los formularios quedaron registrados? | Se guía por el orden de los formularios físicos y por las indicaciones de los analistas sobre cuáles ya fueron digitados. Sin embargo, la falta de un control claro ha ocasionado registros duplicados. |
+| 11 | ¿Qué opinas de ingresar con el correo institucional y el código estudiantil? | Considera útil utilizar el correo institucional, pero prefiere que la contraseña pueda elegirse libremente y no tenga que ser exclusivamente el código estudiantil. |
+| 12 | ¿Qué debería hacer la herramienta cuando no haya conexión a internet? | Debe permitir seguir tomando fotografías, conservar la información sin perderla y enviarla o sincronizarla automáticamente cuando se restablezca la conexión. |
+| 13 | ¿Qué te preocupa de manejar los formularios desde un celular? | Le preocupa que la información personal pueda filtrarse o perderse, así como el cumplimiento de las normas de protección de datos, especialmente cuando se trata de menores de edad. |
+| 14 | ¿Qué información necesitas cuando falla la carga de una fotografía? | Una notificación clara que indique que la carga falló y que es necesario intentar subir la fotografía nuevamente. |
+
+**Principales necesidades identificadas:**
+
+- **Automatización:** transcribir los datos de los formularios para reducir el trabajo manual.
+- **Validación de datos:** permitir revisar y corregir los campos que el sistema no reconozca con certeza.
+- **Control de calidad de imágenes:** detectar fotografías borrosas, oscuras o de baja calidad y solicitar que se repitan.
+- **Prevención de duplicados:** llevar un registro claro de los formularios procesados y pendientes.
+- **Funcionamiento sin conexión:** guardar temporalmente los datos y sincronizarlos al recuperar internet.
+- **Seguridad y privacidad:** proteger la información personal y garantizar el cumplimiento de las normas de tratamiento de datos.
+- **Notificaciones claras:** informar sobre errores de carga y ofrecer una acción para resolverlos.
+
+### **3.1.3 Entrevista 3: Analista de mercadeo**
+
+**Entrevistada:** Natalie Arce, analista de mercadeo que revisa, organiza y envía los registros.
+
+**Objetivo:** Conocer cómo procesan hoy los formularios después de un evento y qué necesitan para revisar, organizar y enviar a Salesforce sin pasos manuales.
+
+**Grabación:** [Entrevista del analista](https://drive.google.com/file/d/1HAYflZE3PSuhdEMJaAoeLudbZK69N5VH/view?usp=sharing)
+
+**Preguntas realizadas:**
+
+| **N.º** | **Pregunta** |
+|---|---|
+| 1 | Describe cómo procesas hoy los formularios después de un evento (digitación, Excel, correo, carga a Salesforce): ¿qué datos capturas y cuáles son los más difíciles de leer? |
+| 2 | ¿Cuáles son los datos en los que más te demoras transcribiendo o en los que tengas que poner más cuidado? |
+| 3 | ¿Qué reglas debe aplicar el sistema en algunos campos: por ejemplo, que los correos contengan? |
+| 4 | ¿Les ha sucedido que escriben el nombre de los colegios de distintas formas? En caso de que sí, ¿cómo te gustaría que la página lo resuelva? |
+| 5 | ¿Qué hacen cuando varios estudiantes marcan casillas diferentes en campos como el calendario del colegio al que asisten? ¿Les gustaría unos campos preestablecidos relacionados con los datos del colegio? |
+| 6 | Cuando un dato queda dudoso (letra ilegible, dos casillas marcadas, celular incompleto, correo mal escrito), ¿cómo lo resuelves y qué necesitas tener a la vista para decidir? |
+| 7 | ¿Cuándo confías en un dato extraído por la IA y qué casos dudosos esperas que el sistema detecte? |
+| 8 | ¿Te gustaría que se manejen etiquetas como "por revisar" o "pendiente" cuando la IA no quede con el 100 % de certeza? |
+| 9 | ¿Cómo te gustaría organizar la revisión hecha por la IA (por colegio, por jornada, pendientes) y qué pasa si dos personas corrigen el mismo formulario? |
+| 10 | ¿Cómo detectas hoy a los aspirantes repetidos y qué criterio usas para decidir cuál registro se queda? Si se descarta uno por error, ¿cómo lo recuperarías? |
+| 11 | ¿Y si el celular del aspirante y el del acudiente son iguales? |
+| 12 | ¿Qué haces con los aspirantes que no dejaron celular ni correo? ¿Cómo debe tratarse al enviarlos a Salesforce? |
+| 13 | ¿Con qué criterios decide el equipo comercial a quién llamar primero (grado, carrera, datos completos)? |
+| 14 | ¿Cómo registras los colegios y organizas una feria o visita? ¿Los eventos tienen fecha? |
+| 15 | Al enviar a Salesforce: ¿qué querrías ver antes de enviar, qué debería pasar si algunos registros fallan o Salesforce no responde, y cómo corregirías un dato que ya se envió? |
+| 16 | Para ingresar a la plataforma usarías correo y contraseña: ¿qué debería pasar si olvidas la clave o dejas el computador abierto? |
+
+## **3.2 Prototipado**
+
+### **3.2.1 Prototipo inicial**
+
+A partir de lo obtenido en las entrevistas se elaboró un **prototipo inicial** de LexiGrid, con el fin de validar con los usuarios las ideas de interfaz y de flujo antes de especificar las historias de usuario. Este prototipo es una primera versión y no representa el diseño final del sistema.
+
+- Prototipo inicial: [https://uxpilot.ai/s/3b7b780cb3f410b8ea91f95f0009a2fc](https://uxpilot.ai/s/3b7b780cb3f410b8ea91f95f0009a2fc)
+
+### **3.2.2 Prueba del prototipo con usuarios**
+
+**Tester:** Yulieth Cardona, líder de los embajadores y analista.
+
+**Observaciones para el perfil del embajador:**
+
+- Tener presente que el perfil que usará el embajador en la app será uno brindado por Mercadeo y/o el de una persona de Mercadeo.
+- Al tomar la foto, el embajador debe poder ver si fue procesada correctamente.
+- Debe existir la opción de retomar la foto si el embajador no está segura de su calidad.
+- Debe quedar claro si una foto marcada como dudosa por calidad debe repetirse en el momento o si se puede seguir subiendo y corregirla después.
+- Debe poderse ver en algún lugar de la app cuántos formularios lleva cargados en la jornada.
+- Se prefiere la vista dividida entre imagen y texto editable.
+
+**Observaciones para el perfil del analista:**
+
+- La exportación a Salesforce debe hacerse según la jornada o el evento.
+- Debe poderse filtrar para no ver los aspirantes incontactables.
+- Debe mostrarse una confirmación antes de enviar los registros a Salesforce, indicando cuántos se van a enviar.
+- Debe poderse saber por qué un registro quedó eliminado como duplicado (qué datos coincidieron).
+- El historial debe permitir buscar directamente por un aspirante, no solo por usuario.
+
+### **3.2.3 Formulario de inscripción de referencia**
+
+La siguiente imagen corresponde al formulario de inscripción que diligencian los aspirantes. Se usa como **referencia** para identificar los campos que el OCR debe extraer y las reglas de validación asociadas.
+
+![Formulario de inscripción diligenciado por los aspirantes (referencia)](recursos/image1.jpg)
+
+# **4. Historias de Usuario**
+
+## **4.1 Historias de usuario**
 
 Las historias de usuario de LexiGrid se organizan por épicas. Cada historia incluye su descripción (Como / Quiero / Para), sus criterios de aceptación y su prioridad según la técnica MoSCoW (Must, Should, Could, Won’t).
 
-### **3.1.1 Épica \#1: Captura de datos**
+### **4.1.1 Épica \#1: Captura de datos**
 
 #### **HU 1: Captura de formularios**
 
@@ -449,7 +618,7 @@ Criterios de aceptación:
 
 MoSCoW: Could
 
-### **3.1.2 Épica \#2: Seguridad e inicio de sesión en la app móvil**
+### **4.1.2 Épica \#2: Seguridad e inicio de sesión en la app móvil**
 
 #### **HU 10: Inicio de sesión en la app móvil con perfil general**
 
@@ -509,7 +678,7 @@ Criterios de aceptación:
 
 MoSCoW: Should
 
-### **3.1.3 Épica \#3: Procesamiento del reconocimiento óptico de caracteres (OCR)**
+### **4.1.3 Épica \#3: Procesamiento del reconocimiento óptico de caracteres (OCR)**
 
 #### **HU 12: Identificación de campos**
 
@@ -615,7 +784,7 @@ Criterios de aceptación:
 
 MoSCoW: Must
 
-### **3.1.4 Épica \#4: Revisión manual de transcripciones**
+### **4.1.4 Épica \#4: Revisión manual de transcripciones**
 
 #### **HU 16: Interfaz de comparación en la plataforma web**
 
@@ -723,7 +892,7 @@ Criterios de aceptación:
 
 MoSCoW: Could
 
-### **3.1.5 Épica \#5: Organización de registros**
+### **4.1.5 Épica \#5: Organización de registros**
 
 #### **HU 21: Detección de duplicados y estado “Por revisar duplicado”**
 
@@ -933,7 +1102,7 @@ Criterios de aceptación:
 
 MoSCoW: Must
 
-### **3.1.6 Épica \#6: Eventos e integración directa con el CRM**
+### **4.1.6 Épica \#6: Eventos e integración directa con el CRM**
 
 #### **HU 29: Filtrar aspirantes por evento, colegio y ciudad**
 
@@ -1207,7 +1376,7 @@ Criterios de aceptación:
 
 MoSCoW: Should
 
-### **3.1.7 Épica \#7: Administración y supervisión**
+### **4.1.7 Épica \#7: Administración y supervisión**
 
 #### **HU 41: Gestión de usuarios, roles y perfiles generales**
 
@@ -1255,7 +1424,7 @@ Para medir el impacto del sistema frente al proceso manual anterior en Excel.
 
 MoSCoW: Won’t
 
-### **3.1.8 Épica \#8: Seguridad e inicio de sesión en la plataforma web**
+### **4.1.8 Épica \#8: Seguridad e inicio de sesión en la plataforma web**
 
 #### **HU 44: Inicio de sesión seguro en la plataforma web**
 
@@ -1317,7 +1486,7 @@ Criterios de aceptación:
 
 MoSCoW: Should
 
-### **3.1.9 Épica \#9: Trazabilidad y auditoría**
+### **4.1.9 Épica \#9: Trazabilidad y auditoría**
 
 #### **HU 47: Historial de cambios por usuario**
 
@@ -1341,7 +1510,7 @@ Criterios de aceptación:
 
 MoSCoW: Must
 
-## **3.2 División por sprints**
+## **4.2 División por sprints**
 
 La planificación se organiza en 11 sprints, asumiendo una duración de dos semanas por sprint. Los criterios utilizados fueron:
 
@@ -1378,8 +1547,261 @@ Plan de sprints
 | Sprint 11 | Funcionalidades deseables (Could have) | HU 9: Historial de cargas<br>HU 19: Comentarios internos en un registro dudoso<br>HU 20: Visualización de la imagen original desde un registro<br>HU 31: Unificar variantes de nombre de colegio, evento o ciudad<br>HU 39: Actualización en el CRM de registros ya enviados | Could |
 | Fuera de alcance | Backlog no planificado en esta versión | HU 42: Revocación de sesión y borrado remoto de datos del dispositivo<br>HU 43: Métricas de tiempo de digitación y errores | Won’t |
 
-### **3.3.1 Validación con el cliente:**
+### **4.2.1 Validación con el cliente:**
 
 La validación la realiza el área de Mercadeo (sponsor), que revisa cada historia de usuario del sprint y manifiesta su aceptación por medio de un correo electrónico.
 
-![image2.png](recursos/image2.png)
+A continuación se documenta la verificación de las historias de usuario realizada con los usuarios de cada rol.
+
+#### **4.2.1.1 Objetivo y alcance**
+
+La verificación de requisitos busca comprobar que las Historias de Usuario (HU) de LexiGrid reflejan la operación real de quienes usarán el sistema, antes de pasar al diseño y a la construcción. Se verificaron las 45 HU del backlog original con usuarios representativos de los tres roles del sistema: embajador, analista de mercadeo y administrador. El resultado es la versión final del backlog, con 47 HU.
+
+El alcance cubre los criterios de aceptación y las actividades de cada HU, junto con su prioridad MoSCoW. Los hallazgos se clasificaron por tipo y cada HU recibió un resultado en cada sesión.
+
+#### **4.2.1.2 Método de verificación: walk-through**
+
+Se aplicó el método de revisión guiada o walk-through. En este método el equipo autor de los requisitos presenta el documento a los revisores, que en este caso son los usuarios finales. El revisor lee cada HU, expresa en voz alta cómo ejecutaría esa tarea en su trabajo real y señala lo que no coincide. Se eligió porque permite detectar a tiempo requisitos que contradicen la operación y aclarar dudas de forma directa con quien conoce el proceso.
+
+La verificación se desarrolló así:
+
+- **División por rol.** Cada HU se asignó al rol que la usa, de modo que cada validador revisara únicamente las historias de su perfil.
+
+- **Lectura guiada.** El equipo presentó cada HU con su rol, su necesidad, su beneficio, sus criterios de aceptación y sus actividades.
+
+- **Registro de hallazgos.** Las observaciones se anotaron en un documento de trabajo por perfil, con marcas para indicar si una HU se aprobaba, debía cambiar parcialmente o completamente, o se descartaba.
+
+- **Corrección y nueva presentación.** Después de cada sesión, el equipo ajustó las HU y presentó la versión corregida en la sesión siguiente.
+
+#### **4.2.1.3 Participantes y distribución de las HU por rol**
+
+Se contó con un validador por cada rol. Las HU se distribuyeron según el perfil que las usa. Algunas HU se validaron con más de un rol: la HU 17 con embajador y analista, la HU 37 y la HU 45 con analista y administrador, y las HU 42, 43 y 44 (acceso a la plataforma web) también con analista y administrador.
+
+**Tabla 1. Participantes y HU asignadas por rol**
+
+| **Rol**           | **Validador**     | **Perfil del validador**                                                                | **HU asignadas (numeración original)**        | **Total** |
+|-------------------|-------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------|-----------|
+| **Embajador**     | Juliana Hoyos     | Embajadora                                                                              | HU 1 a 10, 16 y 17                            | 12        |
+| **Analista**      | Natalie Arce      | Promotora del área de Mercadeo                                                          | HU 11, 12, 13, 15, 17 a 29, 32 a 37 y 42 a 45 | 27        |
+| **Administrador** | Sebastián Cerezos | Profesional de gestión de vinculación, encargado del equipo comercial de la Universidad | HU 14, 30, 31, 37 a 45                        | 12        |
+
+#### **4.2.1.4 Organización de las sesiones y criterios de clasificación**
+
+Con cada rol se realizaron tres sesiones:
+
+- **Sesión 1:** revisión de todas las HU asignadas al rol. Fue la sesión con más cambios: se descartaron varias HU y se reformularon otras.
+
+- **Sesión 2:** revisión de las HU que no quedaron aprobadas en la sesión 1, en su versión corregida, junto con las HU nuevas. Se pulieron detalles.
+
+- **Sesión 3:** revisión final de las HU pendientes y validación de la versión completa del backlog.
+
+Una HU aprobada sin observaciones no se vuelve a presentar en la sesión siguiente. Las que se aprobaron con observaciones o requirieron nueva revisión pasan a la siguiente sesión para comprobar que el ajuste quedó bien. Las HU rechazadas que se descartan por completo salen del backlog y no se vuelven a evaluar.
+
+Cada hallazgo se clasificó con el siguiente tipo:
+
+- **Error:** la HU contradice la operación real o contiene una inconsistencia que debe corregirse.
+
+- **Duda:** punto que el equipo debía aclarar con el cliente para poder definir la HU.
+
+- **Mejora:** ajuste que no corrige un error, pero hace la HU más completa, clara o útil.
+
+Cada HU recibió uno de estos resultados:
+
+- **Aprobada:** el validador la aceptó sin cambios.
+
+- **Aprobada con observaciones:** se acepta, pero con ajustes que se comprueban en la siguiente sesión.
+
+- **Rechazada / requiere nueva revisión:** no refleja la operación. Se descarta o se reformula, y si se reformula se presenta de nuevo en la siguiente sesión.
+
+En las tablas, la columna HU muestra el número que la HU tenía en la sesión. Cuando cambió en la versión final se indica con una flecha, por ejemplo “HU 9 → HU 10”. “(descartada)” indica que la HU salió del backlog. Las HU agregadas después de la sesión 1 se marcan como “nueva”. Cuando un hallazgo no aplica, el tipo se indica con “—”.
+
+#### **4.2.1.5 Sesión 1: revisión inicial de todas las HU**
+
+En la primera sesión se presentaron las 45 HU originales, distribuidas por rol. Aquí se concentraron los cambios más importantes. El modelo de jornadas y colegios administrados por el analista no coincidía con la operación y se reemplazó por datos escritos por el embajador. El acceso con cuentas individuales se cambió por perfiles generales. Además, se descartaron las HU de cierre de jornada, revisión desde la app y métricas.
+
+**Tabla 2. Sesión 1, rol Embajador (Juliana Hoyos)**
+
+| **HU**                                                                      | **Hallazgo**                                                                                                                                                                                                                                                                                                                                                                                                                                        | **Tipo** | **Resultado**                       |
+|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------|
+| **HU 9 → HU 10**<br>Inicio de sesión en la app móvil                        | El acceso con correo institucional y código estudiantil individual no corresponde a la operación: cualquier estudiante puede actuar como embajador. Se requiere un mínimo de cinco perfiles generales, creados por el administrador, que cualquier embajador pueda usar, de modo que varios embajadores carguen información al mismo tiempo.                                                                                                        | Error    | Rechazada / requiere nueva revisión |
+| **HU 10 → HU 11**<br>Cierre de sesión automático en la app móvil            | Se aprueba la funcionalidad. Debe ajustarse al nuevo modelo de acceso: las credenciales y la cola local de fotos pertenecen al perfil general y no a un embajador individual.                                                                                                                                                                                                                                                                       | Mejora   | Aprobada con observaciones          |
+| **HU 3 → HU 3, 4 y 5**<br>Seleccionar la jornada y el colegio activos       | No existen jornadas abiertas ni un catálogo de colegios definido por el analista. Un mismo colegio puede escribirse de distintas formas en los formularios, por lo que el embajador escribe el nombre de la jornada o feria, el colegio y la ciudad del lote que carga. Varios colegios pueden aparecer en una misma jornada y un colegio puede repetirse en distintas jornadas, por lo que el embajador debe poder cambiar estos datos fácilmente. | Error    | Rechazada / requiere nueva revisión |
+| **HU 1**<br>Captura de formularios                                          | Se aprueba la captura. Cada foto debe asociarse al perfil general y a los datos del lote escritos por el embajador (jornada, colegio y ciudad), y no a una jornada y un colegio seleccionados de una lista.                                                                                                                                                                                                                                         | Mejora   | Aprobada con observaciones          |
+| **HU 2**<br>Evaluar la calidad de la foto                                   | Sin observaciones.                                                                                                                                                                                                                                                                                                                                                                                                                                  | —        | Aprobada                            |
+| **HU 4 → HU 6**<br>Modo offline                                             | Sin observaciones.                                                                                                                                                                                                                                                                                                                                                                                                                                  | —        | Aprobada                            |
+| **HU 6 → HU 8**<br>Carga simultánea                                         | Sin observaciones.                                                                                                                                                                                                                                                                                                                                                                                                                                  | —        | Aprobada                            |
+| **HU 5 → HU 7**<br>Estado de sincronización de cada foto                    | Sin observaciones.                                                                                                                                                                                                                                                                                                                                                                                                                                  | —        | Aprobada                            |
+| **HU 7**<br>Notificación y reintento de cargas fallidas                     | Sin observaciones.                                                                                                                                                                                                                                                                                                                                                                                                                                  | —        | Aprobada                            |
+| **HU 8 → HU 9**<br>Historial de cargas diarias                              | Se aprueba el historial. Debe permitir filtrar por jornada y también por colegio.                                                                                                                                                                                                                                                                                                                                                                   | Mejora   | Aprobada con observaciones          |
+| **HU 16 (descartada)**<br>Revisión de campos por revisar desde la app móvil | El embajador no debe poder revisar ni corregir campos desde la app móvil. La revisión de los campos “Por revisar” es exclusiva del analista en la plataforma web.                                                                                                                                                                                                                                                                                   | Error    | Rechazada / requiere nueva revisión |
+| **HU 17**<br>Prevención de ediciones simultáneas sobre un registro          | Esta funcionalidad no se hace desde la app móvil: aplica únicamente al analista en la plataforma web.                                                                                                                                                                                                                                                                                                                                               | Error    | Rechazada / requiere nueva revisión |
+
+**Tabla 3. Sesión 1, rol Analista de mercadeo (Natalie Arce)**
+
+| **HU**                                                                       | **Hallazgo**                                                                                                                                                                                                                                                                     | **Tipo** | **Resultado**                       |
+|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------|
+| **HU 42 → HU 44**<br>Inicio de sesión seguro en la plataforma web            | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 43 → HU 45**<br>Recuperación de contraseña                              | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 44 → HU 46**<br>Cierre de sesión automático en la plataforma web        | Se aprueba. Se propone un tiempo de inactividad de 15 minutos como valor de referencia.                                                                                                                                                                                          | Mejora   | Aprobada con observaciones          |
+| **HU 26 (descartada)**<br>Registro y gestión de colegios                     | Los colegios no se registran en un catálogo: provienen de los formularios, tal como los escribe el embajador al cargar el lote.                                                                                                                                                  | Error    | Rechazada / requiere nueva revisión |
+| **HU 27 (descartada)**<br>Creación y gestión de jornadas                     | El analista no crea ni administra jornadas; estas surgen de los datos que escribe el embajador. Se indicó además que el registro del origen debe incluir la ciudad (que pasa a ser un dato del lote) y el calendario, que ya forma parte de los campos extraídos del formulario. | Error    | Rechazada / requiere nueva revisión |
+| **HU 28 (descartada)**<br>Cierre y reapertura de jornadas                    | Sin jornadas administradas por el analista no existe un estado abierta o cerrada, y el envío al CRM no depende de un cierre. Se confirma el descarte.                                                                                                                            | Error    | Rechazada / requiere nueva revisión |
+| **HU 29 (fusionada en hu 35)**<br>Alerta de pendientes al cerrar una jornada | Sin cierre de jornada no hay momento de alerta. La necesidad de advertir los registros “Por revisar” se traslada al momento de enviar el lote. Se confirma el descarte.                                                                                                          | Error    | Rechazada / requiere nueva revisión |
+| **HU 11 → HU 12**<br>Identificación de campos                                | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 12 → HU 13**<br>Campos con incertidumbre                                | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 13 → HU 14**<br>Validación de formato de los datos extraídos            | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 15 → HU 16**<br>Interfaz de comparación en la plataforma web            | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 17**<br>Prevención de ediciones simultáneas sobre un registro           | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 18**<br>Filtro de registros pendientes de revisión                      | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 19**<br>Comentarios internos en un registro dudoso                      | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 20**<br>Visualización de la imagen original desde un registro           | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 21 → HU 21 y 22**<br>Eliminación de duplicados                          | El sistema no debe descartar duplicados automáticamente. Una persona debe verificarlos: lo recomendable es dejar el documento nuevo y completarlo con la información del anterior.                                                                                               | Error    | Rechazada / requiere nueva revisión |
+| **HU 22 → HU 24**<br>Papelera de duplicados descartados                      | Se aprueba. Como los incontactables también se descartan de la fila de trabajo (HU 23), la Papelera debe recibir ambos tipos de registro.                                                                                                                                        | Mejora   | Aprobada con observaciones          |
+| **HU 23**<br>Clasificación de aspirantes incontactables                      | Los aspirantes incontactables deben descartarse de la fila de trabajo y no solo etiquetarse.                                                                                                                                                                                     | Error    | Rechazada / requiere nueva revisión |
+| **HU 24 → HU 26**<br>Actualización automática de incontactables              | Al descartarse los incontactables ya no se etiquetan en la fila de trabajo, por lo que la regla de actualización del estado deja de aplicar tal como estaba redactada y debe reformularse.                                                                                       | Error    | Rechazada / requiere nueva revisión |
+| **HU 25 → HU 27**<br>Priorización de leads                                   | Los criterios de prioridad deben dar peso a la completitud de los datos y considerar la homologación, por lo que la regla requiere ajuste.                                                                                                                                       | Mejora   | Rechazada / requiere nueva revisión |
+| **HU 32 → HU 34 y 35**<br>Preparación del lote de envío por jornada          | El lote se divide por jornada y colegio, no solo por jornada.                                                                                                                                                                                                                    | Error    | Rechazada / requiere nueva revisión |
+| **HU 33 → HU 36**<br>Envío directo a Salesforce                              | Se aprueba el envío directo. Como el lote se define por jornada y colegio (HU 32), cada envío debe corresponder a esa combinación y no solo a una jornada.                                                                                                                       | Mejora   | Aprobada con observaciones          |
+| **HU 34 → HU 37**<br>Estado de envío de cada registro                        | Se aprueba. El resumen por estado de envío debe agruparse por jornada y colegio, y no solo por jornada.                                                                                                                                                                          | Mejora   | Aprobada con observaciones          |
+| **HU 35 → HU 38**<br>Reintento de envíos fallidos                            | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 36 → HU 39**<br>Actualización en Salesforce de registros ya enviados    | Se solicita un archivo de Excel con lo subido al CRM. Esto contradice el requisito de envío directo sin generación de archivos y debe evaluarse.                                                                                                                                 | Mejora   | Rechazada / requiere nueva revisión |
+| **HU 37 → HU 40**<br>Alerta de falla en la integración con Salesforce        | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+| **HU 45 → HU 47**<br>Historial de cambios por usuario                        | Sin observaciones.                                                                                                                                                                                                                                                               | —        | Aprobada                            |
+
+**Tabla 4. Sesión 1, rol Administrador (Sebastián Cerezos)**
+
+| **HU**                                                                              | **Hallazgo**                                                                                                                                                                                                                               | **Tipo** | **Resultado**                       |
+|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------|
+| **HU 42 → HU 44**<br>Inicio de sesión seguro en la plataforma web                   | Se validó junto con el analista; el administrador usa el mismo acceso con correo institucional y contraseña.                                                                                                                               | —        | Aprobada                            |
+| **HU 43 → HU 45**<br>Recuperación de contraseña                                     | Se validó junto con el analista; el administrador recupera su acceso con el correo institucional.                                                                                                                                          | —        | Aprobada                            |
+| **HU 44 → HU 46**<br>Cierre de sesión automático en la plataforma web               | Se validó junto con el analista; la sesión del administrador también se cierra por inactividad.                                                                                                                                            | —        | Aprobada                            |
+| **HU 39 → HU 41**<br>Gestión de usuarios del sistema                                | Duda sobre si debe existir una cuenta para cada embajador o si se debe usar el perfil de algún analista. La respuesta es un conjunto de perfiles generales de embajador creados y gestionados por el administrador.                        | Duda     | Rechazada / requiere nueva revisión |
+| **HU 40 → HU 42**<br>Revocación de sesión y borrado remoto de datos del dispositivo | Se aprueba y se mantiene como Won’t en esta etapa.                                                                                                                                                                                         | —        | Aprobada                            |
+| **HU 30 → HU 32**<br>Configuración de la conexión con Salesforce                    | Sin observaciones.                                                                                                                                                                                                                         | —        | Aprobada                            |
+| **HU 31 → HU 33**<br>Mapeo de campos hacia Salesforce                               | Sin observaciones.                                                                                                                                                                                                                         | —        | Aprobada                            |
+| **HU 37 → HU 40**<br>Alerta de falla en la integración con Salesforce               | Sin observaciones.                                                                                                                                                                                                                         | —        | Aprobada                            |
+| **HU 14 → HU 15 y 28**<br>Almacenamiento selectivo y retención de imágenes          | La HU daba a entender que los registros enviados se eliminan pasado un tiempo. El cliente pidió que los registros ya enviados se conserven en la plataforma, separados de los que están en trabajo. Lo que sí se elimina son las imágenes. | Error    | Rechazada / requiere nueva revisión |
+| **HU 45 → HU 47**<br>Historial de cambios por usuario                               | Se solicita incorporar al historial los eventos que surgen de los cambios acordados (Papelera, perfiles generales, unificación de nombres de colegio, jornada o ciudad y envíos con pendientes).                                           | Mejora   | Aprobada con observaciones          |
+| **HU 38 → HU 41**<br>Gestión de roles y permisos                                    | El administrador no habilita ni deshabilita funcionalidades por perfil: los permisos de cada rol son fijos.                                                                                                                                | Error    | Rechazada / requiere nueva revisión |
+| **HU 41 → HU 43**<br>Métricas de tiempo de digitación y errores                     | Se descarta del alcance actual; queda clasificada como Won’t.                                                                                                                                                                              | Error    | Rechazada / requiere nueva revisión |
+
+#### **4.2.1.6 Sesión 2: pulido de detalles**
+
+En la segunda sesión se presentaron las HU corregidas y las agregadas a partir de la sesión 1, y se pulieron sus detalles. Las HU aprobadas sin observaciones en la sesión 1 no se volvieron a presentar.
+
+**Tabla 5. Sesión 2, rol Embajador (Juliana Hoyos)**
+
+| **HU**                                                                   | **Hallazgo**                                                                                                                                                                                                                                                                                                     | **Tipo** | **Resultado**              |
+|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------|
+| **HU 1**<br>Captura de formularios                                       | El embajador no necesita visualizar los formularios cargados: verifica que su carga fue exitosa mediante el estado de sincronización y el historial de cargas. Cada foto se asocia al perfil general y a los datos del lote, y la conservación de las imágenes pasa a regirse únicamente por la HU de retención. | Mejora   | Aprobada con observaciones |
+| **HU 3**<br>Definir jornada, colegio y ciudad del lote                   | Se presentó la HU reformulada: el embajador escribe jornada, colegio y ciudad como campos de texto obligatorios, sin listas predefinidas y con funcionamiento sin conexión.                                                                                                                                      | —        | Aprobada                   |
+| **HU 3a (nueva) → HU 4**<br>Cambiar jornada, colegio o ciudad fácilmente | Se presentó la HU agregada: cambiar cualquiera de los tres datos en máximo dos toques, sin alterar los formularios ya capturados.                                                                                                                                                                                | —        | Aprobada                   |
+| **HU 3b (nueva) → HU 5**<br>Sugerencias de valores usados anteriormente  | Se presentó la HU agregada: sugerencias de valores escritos antes en el dispositivo, que funcionan sin conexión y no impiden escribir un valor nuevo.                                                                                                                                                            | —        | Aprobada                   |
+| **HU 8 → HU 9**<br>Historial de cargas diarias                           | Los criterios de aceptación y las actividades eran inconsistentes: el filtro por colegio aparecía en los criterios, pero no en las actividades. El estado de carga fallida debe llamarse “Error”, igual que en el estado de sincronización.                                                                      | Error    | Aprobada con observaciones |
+| **HU 9 → HU 10**<br>Inicio de sesión en la app móvil con perfil general  | Se presentó el inicio de sesión con perfil general: sesión única por perfil, sesiones simultáneas de perfiles distintos y bloqueo tras tres intentos fallidos. Un perfil puede quedar ocupado por un dispositivo perdido o sin conexión, por lo que el administrador debe poder liberarlo.                       | Mejora   | Aprobada con observaciones |
+| **HU 10 → HU 11**<br>Cierre de sesión automático en la app móvil         | El texto aún hacía referencia a correo, contraseña y a un embajador individual. Debe validar el perfil general y su clave, y aislar la cola local por perfil.                                                                                                                                                    | Error    | Aprobada con observaciones |
+| **HU 17**<br>Prevención de ediciones simultáneas sobre un registro       | Se confirmó que la prevención de ediciones simultáneas aplica únicamente al analista en la plataforma web.                                                                                                                                                                                                       | —        | Aprobada                   |
+
+**Tabla 6. Sesión 2, rol Analista de mercadeo (Natalie Arce)**
+
+| **HU**                                                                                 | **Hallazgo**                                                                                                                                                                                                                                                                                                  | **Tipo** | **Resultado**                       |
+|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------|
+| **HU 21a → HU 21**<br>Detección de duplicados y estado “Por revisar duplicado”         | La detección ya no descarta registros: el más reciente pasa a “Por revisar duplicado” y el analista decide. Las reglas de unificación de celulares y de exclusión de lotes estaban repetidas en esta HU y deben definirse en una sola HU (validación de formato y preparación del lote).                      | Mejora   | Aprobada con observaciones          |
+| **HU 21b (nueva) → HU 22**<br>Resolver duplicados desde el apartado Duplicados         | Se presentó la resolución de duplicados: conservar el anterior, conservar el nuevo o elegir campo por campo, con sugerencia por defecto y envío del registro no conservado a la Papelera.                                                                                                                     | —        | Aprobada                            |
+| **HU 22 → HU 24 y 25**<br>Papelera de duplicados descartados                           | La Papelera abarca ahora duplicados descartados e incontactables, pero la HU reunía varias responsabilidades (restaurar, filtrar y restaurar en lote, y editar el contacto). Se divide en Papelera (HU 24), filtros y restauración en lote (HU 25) y edición de contacto con recuperación automática (HU 26). | Mejora   | Aprobada con observaciones          |
+| **HU 23**<br>Clasificación de aspirantes incontactables                                | Se presentó el nuevo comportamiento: los registros sin canal de contacto salen de la fila y pasan a la Papelera con el motivo “Incontactable”, salvo que algún campo de contacto esté “Por revisar”.                                                                                                          | —        | Aprobada                            |
+| **HU 24 → HU 26**<br>Recuperación automática de incontactables al corregir su contacto | Se presentó la recuperación automática al corregir el contacto desde la web. La edición del contacto desde la Papelera se traslada a esta HU, donde se define junto con la reevaluación.                                                                                                                      | Mejora   | Aprobada con observaciones          |
+| **HU 25 → HU 27**<br>Priorización de leads                                             | Se precisó que un grado en blanco y verificado recibe prioridad Baja y que los incontactables no aparecen en la priorización porque están en la Papelera.                                                                                                                                                     | Mejora   | Aprobada con observaciones          |
+| **HU 26 (nueva) → HU 29**<br>Filtrar aspirantes por jornada, colegio y ciudad          | Se presentó el filtro combinable por jornada, colegio y ciudad que reemplaza al catálogo de colegios.                                                                                                                                                                                                         | —        | Aprobada                            |
+| **HU 27 (nueva) → HU 30**<br>Ver avance de revisión por jornada y colegio              | Se presentó el resumen de aspirantes por estado, por jornada y colegio. Debe incluir también los estados de envío.                                                                                                                                                                                            | Mejora   | Aprobada con observaciones          |
+| **HU 28 (nueva) → HU 31**<br>Unificar variantes de nombre de colegio o jornada         | Se presentó la unificación de variantes escritas distinto del mismo colegio, jornada o ciudad, con auditoría y sin modificar los registros ya enviados.                                                                                                                                                       | —        | Aprobada                            |
+| **HU 14b (nueva) → HU 28**<br>Conservar registros enviados en un archivo aparte        | Se presentó la conservación de los registros enviados en una sección separada, de solo lectura, sin borrado por tiempo y con participación en la detección de duplicados.                                                                                                                                     | —        | Aprobada                            |
+| **HU 32a → HU 34**<br>Preparar y enviar el lote por jornada y colegio                  | La HU mezclaba preparar el lote y enviarlo. Debe limitarse a preparar el lote y mostrar su resumen, y el envío pasa a su propia HU. Las exclusiones del lote (“Por revisar”, “Por revisar duplicado”, Papelera y sin autorización) deben definirse solo aquí.                                                 | Error    | Rechazada / requiere nueva revisión |
+| **HU 32b (nueva) → HU 35**<br>Advertencia de pendientes antes de enviar el lote        | Se presentó la advertencia con la cantidad de registros “Por revisar” de la jornada y el colegio, el acceso directo a la lista filtrada, el recálculo del resumen y la confirmación explícita.                                                                                                                | —        | Aprobada                            |
+| **HU 33 → HU 36**<br>Envío directo al CRM                                              | El envío debe tomar únicamente el lote preparado y no repetir sus reglas de exclusión. El control para no reenviar registros ya enviados se ubica en esta HU.                                                                                                                                                 | Mejora   | Aprobada con observaciones          |
+| **HU 34 → HU 37**<br>Estado de envío de cada registro                                  | Se agrega el estado “Pendiente de actualización”. El resumen por estado de envío se traslada a la HU de avance por jornada y colegio.                                                                                                                                                                         | Mejora   | Aprobada con observaciones          |
+| **HU 36 → HU 39**<br>Actualización en Salesforce de registros ya enviados              | Sobre el Excel solicitado con lo subido al CRM: se mantiene el envío directo sin generación de archivos y la solicitud se registra como mejora fuera del alcance actual.                                                                                                                                      | Mejora   | Aprobada con observaciones          |
+| **HU 44 → HU 46**<br>Cierre de sesión automático en la plataforma web                  | Se confirmó el tiempo de inactividad como parámetro configurable, con 15 minutos como valor de referencia.                                                                                                                                                                                                    | —        | Aprobada                            |
+
+**Tabla 7. Sesión 2, rol Administrador (Sebastián Cerezos)**
+
+| **HU**                                                                | **Hallazgo**                                                                                                                                                                                                                                                                                                                                                                                 | **Tipo** | **Resultado**                       |
+|-----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------|
+| **HU 14 → HU 15**<br>Almacenamiento selectivo y retención de imágenes | Se confirmó que los registros enviados no se eliminan y que solo se eliminan imágenes. Se agregan: conservación indefinida de la imagen de los registros revisados que aún no se envían, eliminación de la imagen junto con el registro de la Papelera, mensaje con el motivo cuando la imagen no está disponible y la regla de que esta HU es la única que define la retención de imágenes. | Mejora   | Aprobada con observaciones          |
+| **HU 38 → HU 41**<br>Gestión de roles y permisos                      | La HU seguía planteando que el administrador habilita o deshabilita funcionalidades por perfil, lo que contradice lo validado en la sesión 1. Los permisos de cada rol son fijos; se fusiona con la gestión de usuarios.                                                                                                                                                                     | Error    | Rechazada / requiere nueva revisión |
+| **HU 39 → HU 41**<br>Gestión de usuarios del sistema                  | La HU aún contemplaba cuentas individuales de embajador con correo y código estudiantil. Debe gestionar perfiles generales (nombre y clave), corregir la clave, desbloquear perfiles y liberar los que queden con sesión activa en otro dispositivo.                                                                                                                                         | Error    | Rechazada / requiere nueva revisión |
+| **HU 45 → HU 47**<br>Historial de cambios por usuario                 | Se centraliza en esta HU la lista de todos los eventos auditados y se agregan los nuevos: Papelera, recuperación automática, unificación de nombres, gestión de perfiles generales y envío con pendientes.                                                                                                                                                                                   | Mejora   | Aprobada con observaciones          |
+
+#### **4.2.1.7 Sesión 3: validación final**
+
+En la tercera sesión se revisaron las HU que seguían pendientes tras la sesión 2 y se validó la versión completa del backlog. Todas quedaron aprobadas. Los números de HU corresponden a la versión final.
+
+**Tabla 8. Sesión 3, rol Embajador (Juliana Hoyos)**
+
+| **HU**    | **Hallazgo**                                                                                                                | **Tipo** | **Resultado** |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------|----------|---------------|
+| **HU 1**  | Se verificó que el embajador no visualiza las imágenes cargadas y que su conservación se rige por la HU 15.                 | —        | Aprobada      |
+| **HU 9**  | Se verificó el historial con filtros por evento y por colegio y el estado “Error” unificado con el de sincronización.       | —        | Aprobada      |
+| **HU 10** | Se verificó que el administrador puede liberar un perfil general ocupado por un dispositivo perdido o sin conexión (HU 41). | —        | Aprobada      |
+| **HU 11** | Se verificó la validación sin conexión del perfil y la clave, y el aislamiento de la cola local por perfil general.         | —        | Aprobada      |
+
+**Tabla 9. Sesión 3, rol Analista de mercadeo (Natalie Arce)**
+
+| **HU**            | **Hallazgo**                                                                                                                                                                               | **Tipo** | **Resultado** |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------|
+| **HU 21**         | Se verificó que la unificación de celulares y la exclusión de lotes quedan definidas en una sola HU (HU 14 y HU 34).                                                                       | —        | Aprobada      |
+| **HU 24**         | Se verificó la Papelera de 30 días, la restauración individual y el estado inicial del registro según su motivo.                                                                           | —        | Aprobada      |
+| **HU 25 (nueva)** | Se presentó la HU surgida de la división de la Papelera: filtros por motivo y colegio, y restauración de varios registros a la vez.                                                        | —        | Aprobada      |
+| **HU 26**         | Se verificó la edición de contacto desde la Papelera y la recuperación automática del registro incontactable.                                                                              | —        | Aprobada      |
+| **HU 27**         | Se verificó la prioridad con grado en blanco y verificado, y la exclusión de los incontactables.                                                                                           | —        | Aprobada      |
+| **HU 30**         | Se verificó que el resumen por evento y colegio incluye los estados de revisión y de envío.                                                                                                | —        | Aprobada      |
+| **HU 34**         | Se verificó la preparación del lote por evento y colegio, con las exclusiones definidas en una sola HU y el resumen previo al envío.                                                       | —        | Aprobada      |
+| **HU 36**         | Se verificó que el envío usa únicamente el lote preparado, confirma cada registro por separado y evita reenvíos de los ya enviados.                                                        | —        | Aprobada      |
+| **HU 37**         | Se verificaron los cuatro estados de envío, incluido “Pendiente de actualización”.                                                                                                         | —        | Aprobada      |
+| **HU 39**         | Se verificó que un registro enviado queda “Pendiente de actualización” cuando cambia por la resolución de un duplicado o la edición de su contacto, y que no se generan archivos de Excel. | —        | Aprobada      |
+
+**Tabla 10. Sesión 3, rol Administrador (Sebastián Cerezos)**
+
+| **HU**    | **Hallazgo**                                                                                                                                                  | **Tipo** | **Resultado** |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------|
+| **HU 15** | Se verificó que esta HU es la única que define la conservación y eliminación de imágenes, incluidos los registros revisados no enviados y los de la Papelera. | —        | Aprobada      |
+| **HU 41** | Se verificó la gestión unificada de usuarios, roles fijos y perfiles generales de embajador, con corrección de clave, desbloqueo y liberación de perfiles.    | —        | Aprobada      |
+| **HU 47** | Se verificó que esta HU enumera todos los eventos auditados y los permisos de consulta por rol.                                                               | —        | Aprobada      |
+
+#### **4.2.1.8 Resumen de resultados**
+
+**Tabla 11. Resultados por sesión (suma de los tres roles)**
+
+| **Sesión**   | **HU evaluadas** | **Aprobadas** | **Aprobadas con observaciones** | **Rechazadas / requieren nueva revisión** |
+|--------------|------------------|---------------|---------------------------------|-------------------------------------------|
+| **Sesión 1** | 51               | 25            | 8                               | 18                                        |
+| **Sesión 2** | 28               | 11            | 14                              | 3                                         |
+| **Sesión 3** | 17               | 17            | 0                               | 0                                         |
+
+Una HU compartida entre dos roles se cuenta una vez por cada rol que la revisó. En la sesión 3 todas las HU presentadas quedaron aprobadas, por lo que el backlog queda validado por los tres roles.
+
+El backlog pasó de 45 a 47 HU. Los cambios principales fueron:
+
+- **Descartadas:** las HU 16 (revisión desde la app), 26 (catálogo de colegios), 27 (creación de jornadas), 28 (cierre y reapertura de jornadas) y 29 (alerta al cierre, fusionada en la advertencia de pendientes antes de enviar).
+
+- **Reformuladas y divididas:** la selección de jornada y colegio (cambio de datos y sugerencias como HU separadas), la eliminación de duplicados (detección y resolución), la preparación del lote (preparar y advertir de pendientes), la retención de imágenes (conservación de registros enviados aparte) y la Papelera (filtros y restauración en lote).
+
+- **Nuevas:** filtros por evento, colegio y ciudad, avance de revisión y de envío, y unificación de variantes de nombre.
+
+- **Fusionadas:** gestión de roles y gestión de usuarios en una sola HU con perfiles generales fijos, y estado de sincronización con notificación y reintento de cargas fallidas.
+
+Tras las sesiones se aplicaron además ajustes transversales para mantener la consistencia entre HU, que no se contabilizan como hallazgos de la validación:
+
+- **Terminología:** “jornada” pasó a “evento” en la versión final de las HU y las referencias a Salesforce se generalizaron a “CRM”.
+
+- **Una sola fuente por regla:** cada regla se define en una sola HU y las demás la referencian. La retención de imágenes está en la HU 15, las exclusiones del lote en la HU 34, los eventos auditados en la HU 47 y los estados de los campos en la HU 13.
+
+- **Acceso por perfiles generales:** se alinearon con este modelo las HU de la app que mencionaban al embajador individual y el texto de recuperación de contraseña.
+
+## **4.3 Definición de Terminado (Definition of Done)**
+
+Una historia de usuario pasa al estado **Terminada (Done)** cuando **todos sus criterios de aceptación se cumplieron**. Para ello:
+
+- Cada criterio de aceptación de la HU se comprueba de forma individual.
+- Si al menos un criterio no se cumple, la HU no se considera terminada y permanece en trabajo hasta cumplirlo.
+- El estado Done se asigna HU por HU; un sprint se da por completado cuando todas las historias de usuario planificadas en él están en estado Done.
