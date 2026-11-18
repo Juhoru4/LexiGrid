@@ -1,1 +1,25 @@
 .obsidian/
+node_modules/
+
+# Dependencias instaladas
+node_modules/
+
+# Next.js y archivos generados
+.next/
+out/
+dist/
+build/
+
+# Variables locales o secretos
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs y archivos del sistema
+*.log
+.DS_Store
+Thumbs.db
+
+# Configuración local de Vercel
+.vercel/
