@@ -64,6 +64,8 @@ Valeria Robles Torres
       - 4.2.1.8 Resumen de resultados
   - 4.3 Definición de Terminado (Definition of Done)
 
+- **5. Lecciones Aprendidas**
+
 # **1. Introducción**
 
 Esta sección presenta el propósito, el alcance y el contexto general del documento SRS para LexiGrid.
@@ -1805,3 +1807,14 @@ Una historia de usuario pasa al estado **Terminada (Done)** cuando **todos sus c
 - Cada criterio de aceptación de la HU se comprueba de forma individual.
 - Si al menos un criterio no se cumple, la HU no se considera terminada y permanece en trabajo hasta cumplirlo.
 - El estado Done se asigna HU por HU; un sprint se da por completado cuando todas las historias de usuario planificadas en él están en estado Done.
+
+# **5. Lecciones Aprendidas**
+
+Como grupo aprendimos lo largo y exhaustivo que es, y puede llegar a ser, la elicitación de requisitos y el desarrollo de software en general. Para este proceso hay que tener en cuenta siempre:
+
+- Usar las herramientas correctas.
+- Seguir el proceso adecuado.
+- Mantener una organización clara del proyecto y del equipo.
+- Procurar obtener la disposición del cliente.
+
+A pesar de que solo exploramos una fase del desarrollo de software, este proceso resultó ser exhaustivo y metódico. Al mismo tiempo, parece haber varias formas de seguirlo, y estas se adaptan al equipo, al cliente y al proyecto. Esto también ayuda a entender por qué el desarrollo de software es tan costoso.
